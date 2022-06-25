@@ -43,8 +43,8 @@ The website [Crontab Guru](https://crontab.guru/) can help you to create desired
 You should create a batch script like this:
 
 ```bat
-scp -P <SSH_Reachable_Port> -r <username>@<IP_ADRESS>:<speedtest_log_file_PATH_on_remote_machine>/*.csv <speedtest_log_file_folder_PATH_on_eva_machine> 
-python <PATH_to_the_script>\general_speedtest_analyse.py 0 1
+scp -P <SSH_Reachable_Port> -r <USER>@<IP_ADRESS>:<speedtest_log_file_PATH_on_remote_machine>/*.csv <speedtest_log_file_folder_PATH_on_eva_machine> 
+python <SCRIPT_FOLDER_PATH>\general_speedtest_analyse.py 0 1
 ```
 
 Then you create a shortcut to this bat script and put it under <code>"C:\Users\<username>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs"</code>
