@@ -15,8 +15,8 @@ Install speedtest-cli with <code>sudo apt install speedtest-cli</code>
 
 Now you could use this speedtest tool from your terminal to generate csv log files like this:
 ```sh
-speedtest-cli --csv-header > <Log_File_Path>
-speedetst-cli --csv >> <Log_File_Path>
+speedtest-cli --csv-header > <LOG_FILE_PATH>
+speedetst-cli --csv >> <LOG_FILE_PATH>
 ```
 The first line creates a csv file with the speetest header and the second line appends to the same file
 So once you created the file you should from then on only append to that file using second command.
@@ -38,12 +38,12 @@ The website [Crontab Guru](https://crontab.guru/) can help you to create desired
 
 ## Evaluation Machine Setup
 
-### Windows
+### Windows OS
 
 You should create a batch script like this:
 
 ```bat
-scp -P <SSH_Reachable_Port> -r <USER>@<IP_ADRESS>:<speedtest_log_file_PATH_on_remote_machine>/*.csv <speedtest_log_file_folder_PATH_on_eva_machine> 
+scp -P <SSH_PORT> -r <USER>@<IP_ADRESS>:<REMOTE_SPEEDTEST_LOG_PATH>/*.csv <EVALUATION_SPEEDTEST_LOG_PATH> 
 python <SCRIPT_FOLDER_PATH>\general_speedtest_analyse.py 0 1
 ```
 
