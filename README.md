@@ -13,17 +13,26 @@ I suggest to run the evaluation on your main work station, especially if your ho
 Update your package information <code>sudo apt update</code><br>
 Install speedtest-cli with <code>sudo apt install speedtest-cli</code>
 
-Now you could use this speedtest tool from your terminal like this:
+Now you could use this speedtest tool from your terminal to generate csv log files like this:
 ```sh
-speedtest-cli 
+speedtest-cli --csv-header > <Log_File_Path>
+speedetst-cli --csv >> <Log_File_Path>
 ```
-
+The first line creates a csv file with the speetest header and the second line appends to the same file
+So once you created the file you should from then on only append to that file using second command.
+<br>
 But we want to execute our speedtests according to a time shedule.
 For this we need to use a task sheduler like [cron](https://wiki.ubuntuusers.de/Cron/). 
 Cron offers us to install user-based crontabs, which are files, that describe when to execute a certain task/command.
+To install a crontab you need to run the command <code>crontab -e</code>. 
+My crontab was installed with privileged rights by prefixing the command with sudo.
 The website [Crontab Guru](https://crontab.guru/) can help you to create desired shedules. E.g. my configuration looks like this:
 ```crontab
-speedtest-cli 
+ 30  0,3,6,9,12,15,18,21  * * 1-4 sudo speedtest-cli --csv >> /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
+  0  2,5,8,11,14,17,20,23 * * 1-4 sudo speedtest-cli --csv >> /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
+  5  0  1  *   *  sudo speedtest-cli --csv-header > /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
+ 10  0  1  *   *  sudo chown pi:root /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
+ 12  0  1  *   *  sudo chmod 666 /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
 ```
 
 
