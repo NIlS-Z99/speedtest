@@ -28,8 +28,8 @@ To install a crontab you need to run the command <code>crontab -e</code>.
 My crontab was installed with privileged rights by prefixing the command with sudo.
 The website [Crontab Guru](https://crontab.guru/) can help you to create desired shedules. E.g. my configuration looks like this:
 ```crontab
- 30  0,3,6,9,12,15,18,21  * * 1-4 sudo speedtest-cli --csv >> /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
-  0  2,5,8,11,14,17,20,23 * * 1-4 sudo speedtest-cli --csv >> /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
+ 30  0,3,6,9,12,15,18,21  * * 1-4 sudo speedtest-cli --csv --secure >> /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
+  0  2,5,8,11,14,17,20,23 * * 1-4 sudo speedtest-cli --csv --secure >> /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
   5  0  1  *   *  sudo speedtest-cli --csv-header > /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
  10  0  1  *   *  sudo chown pi:root /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
  12  0  1  *   *  sudo chmod 666 /home/pi/speedtest_logs/speedtest_$(date +\%B-\%Y).csv
