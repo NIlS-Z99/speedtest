@@ -1,3 +1,8 @@
+# Ignore
 get_speedtest_result.bat
 **/plots/*.png
 **/speedtest_logs/*.csv
+
+# Allow
+!**/plots/Speedtest*Results*January#0.png
+!**/speedtest_logs/speedtest_January-2022.csv
