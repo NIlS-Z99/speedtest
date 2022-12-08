@@ -1,5 +1,6 @@
 # Ignore
 get_speedtest_result.bat
+deep_speedtest_analyse.py
 **/plots/*.png
 **/speedtest_logs/*.csv
 
